@@ -70,8 +70,16 @@ export const handleCreateAppointment = async (req, res) => {
             <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Flogo&psig=AOvVaw22GivWpozQsSf2pZG48nzu&ust=1709176038736000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNiW_YiHzYQDFQAAAAAdAAAAABAE" alt="not"/>
         `
         }
-
+        let message1 = {
+            from: email,
+            to: "fahadulhassan2563@gmail.com",
+            subject: "Patient Appointment",
+            html: `<h1 style="color:#f2921d">mail</h1>
+            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Flogo&psig=AOvVaw22GivWpozQsSf2pZG48nzu&ust=1709176038736000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNiW_YiHzYQDFQAAAAAdAAAAABAE" alt="not"/>
+        `
+        }
         await transporter.sendMail(message);
+        await transporter.sendMail(message1);
 
         return res.status(201).json({
             msg: "you should receive an email",
