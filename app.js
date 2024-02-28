@@ -20,7 +20,7 @@ app.use(cors());
 
 // routes
 app.use("/api/v1", appointmentRouter);
-app.get("/", () => {
-    return resizeBy.json({ messae: "hello" })
+app.get("/", (req, res) => {
+    return res.json({ messae: "hello" })
 })
 app.listen(PORT, () => console.log(`Server Started at PORT`))
