@@ -18,76 +18,72 @@ export const handleCreateAppointment = async (req, res) => {
 
         return res.status(403).json({ message: 'Date is older than current date. Use new date.' });
     }
-    else {
-        try {
-            await appointment.create({
-                name, email, date, phone, slot,
-            });
 
-            let config = {
-                service: 'gmail',
-                auth: {
-                    user: email,
-                    pass: 'qhgvugvmkvvyfebz'
-                }
+    try {
+        await appointment.create({
+            name, email, date, phone, slot,
+        });
+
+        let config = {
+            service: 'gmail',
+            auth: {
+                user: email,
+                pass: 'qhgvugvmkvvyfebz'
             }
-
-            let transporter = nodemailer.createTransport(config);
-
-            let MailGenerator = new Mailgen({
-                theme: "default",
-                product: {
-                    background: "#f2921d",
-                    name: "Dr. Zeba's Clinic",
-                    link: 'https://google.com'
-                }
-            })
-
-            let response = {
-                body: {
-                    name: "Dr. Zeba's Clinic",
-                    intro: "Patient Appointement",
-                    table: {
-                        data: [
-                            {
-                                name: `${name}`,
-                                email: `${email}`,
-                                phone: `${phone}`,
-                            }
-                        ]
-                    },
-                    outro: "we Will contact with you as soon as possible"
-                }
-            }
-
-            let mail = MailGenerator.generate(response)
-
-            let message = {
-                from: email,
-                to: "fahadulhassan2@gmail.com",
-                subject: "Patient Appointment",
-                html: `<h1 style="color:#f2921d">mail</h1>
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Flogo&psig=AOvVaw22GivWpozQsSf2pZG48nzu&ust=1709176038736000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNiW_YiHzYQDFQAAAAAdAAAAABAE" alt="not"/>
-            `
-            }
-
-            await transporter.sendMail(message);
-
-            return res.status(201).json({
-                msg: "you should receive an email",
-                statusCode: 201,
-                message: "successfully Created",
-            });
-        } catch (error) {
-            return res.json({
-                statusCode: 403,
-                message: error.message
-            })
         }
 
+        let transporter = nodemailer.createTransport(config);
+
+        let MailGenerator = new Mailgen({
+            theme: "default",
+            product: {
+                background: "#f2921d",
+                name: "Dr. Zeba's Clinic",
+                link: 'https://google.com'
+            }
+        })
+
+        let response = {
+            body: {
+                name: "Dr. Zeba's Clinic",
+                intro: "Patient Appointement",
+                table: {
+                    data: [
+                        {
+                            name: `${name}`,
+                            email: `${email}`,
+                            phone: `${phone}`,
+                        }
+                    ]
+                },
+                outro: "we Will contact with you as soon as possible"
+            }
+        }
+
+        let mail = MailGenerator.generate(response)
+
+        let message = {
+            from: email,
+            to: "fahadulhassan2@gmail.com",
+            subject: "Patient Appointment",
+            html: `<h1 style="color:#f2921d">mail</h1>
+            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Flogo&psig=AOvVaw22GivWpozQsSf2pZG48nzu&ust=1709176038736000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNiW_YiHzYQDFQAAAAAdAAAAABAE" alt="not"/>
+        `
+        }
+
+        await transporter.sendMail(message);
+
+        return res.status(201).json({
+            msg: "you should receive an email",
+            statusCode: 201,
+            message: "successfully Created",
+        });
+    } catch (error) {
+        return res.json({
+            statusCode: 403,
+            message: error.message
+        })
     }
-
-
 };
 
 export const handleContact = async (req, res) => {
