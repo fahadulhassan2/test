@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% Company.forEach((company)=> { %>
+    <ul class="items">
+      <li>
+        <h2><%= company.firstName %></h2>
+      </li>
+      <li>
+        <h2><%= company.lastName %></h2>
+      </li>
+    </ul>
+    <% }) %>
+  </body>
+</html>
+<script>
+  const names = document.querySelector(".items");
+  console.log(names);
+</script>
