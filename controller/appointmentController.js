@@ -67,7 +67,7 @@ export const handleCreateAppointment = async (req, res) => {
             to: "fahadulhassan2@gmail.com",
             subject: "Patient Appointment",
             html: `<h1 style="color:#f2921d">mail</h1>
-                <img src="https://www.google.com/logos/doodles/2024/leap-day-2024-6753651837110481-2xa.gif" alt="not"/>
+                <img src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
             `
         }
 
@@ -76,7 +76,7 @@ export const handleCreateAppointment = async (req, res) => {
             to: "fahadulhassan2563@gmail.com",
             subject: "Patient Appointment",
             html: `<h1 style="color:#f2921d">mail</h1>
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Flogo&psig=AOvVaw22GivWpozQsSf2pZG48nzu&ust=1709176038736000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNiW_YiHzYQDFQAAAAAdAAAAABAE" alt="not"/>
+            <img src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
         `
         }
         await transporter.sendMail(message);
