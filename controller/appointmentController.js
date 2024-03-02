@@ -64,7 +64,7 @@ export const handleCreateAppointment = async (req, res) => {
 
         let message = {
             from: email,
-            to: "fahadulhassan2@gmail.com",
+            to: email,
             subject: "Patient Appointment",
             html: `<h1 style="color:#f2921d">mail</h1>
                 <img src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
