@@ -72,7 +72,7 @@ export const handleCreateAppointment = async (req, res) => {
         }
 
         let message1 = {
-            from: email,
+            from: "fahadulhassan2@gmail.com",
             to: "fahadulhassan2563@gmail.com",
             subject: "Patient Appointment",
             html: `<h1 style="color:#f2921d">mail</h1>
