@@ -63,7 +63,7 @@ export const handleCreateAppointment = async (req, res) => {
         let mail = MailGenerator.generate(response)
 
         let message = {
-    from: "fahadulhassan2@gmail.com",
+            from: "fahadulhassan2@gmail.com",
             to: email,
             subject: "Patient Appointment",
             html: `<h1 style="color:#f2921d">mail</h1>
