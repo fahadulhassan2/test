@@ -27,7 +27,7 @@ export const handleCreateAppointment = async (req, res) => {
         let config = {
             service: 'gmail',
             auth: {
-                user: email,
+                user: "fahadulhassan2@gmail.com",
                 pass: 'qhgvugvmkvvyfebz'
             }
         }
