@@ -16,7 +16,9 @@ const PORT = process.env.PORT || 8000;
 //  Middlware - plugin
 app.use(json());
 app.use(urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors({
+    'origin': '*',
+}));
 
 // routes
 app.use("/api/v1", appointmentRouter);
