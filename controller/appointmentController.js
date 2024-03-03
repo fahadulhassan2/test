@@ -65,7 +65,7 @@ export const handleCreateAppointment = async (req, res) => {
         let message = {
             from: "fahadulhassan2@gmail.com",
             to: email,
-            subject: "Patient Appointment",
+            subject: "Confirming Upcoming Appointment",
             html: `
       
 <div>                     
@@ -75,19 +75,16 @@ export const handleCreateAppointment = async (req, res) => {
         <h1>Dr. Zeba's Clinic</h1>
 </div>
 <div style=" margin: 20px auto;">
-  <div style="background-color: #000080; color: #fff; text-align: center; padding: 20px;">
-    <h2>Confirming Your Upcoming Appointment</h2>
-  </div>
   <div style="padding: 20px;">
-<p>Dear $${name},</p>
-    <p>I hope this email finds you well. We would like to confirm your upcoming appointment with Dr. [Doctor's Last Name] on [Date] at [Time].</p>
-    <p><strong>Location:</strong> [Clinic/Hospital Address]</p>
-    <p>If you have any questions or need to reschedule, please contact us at [Your Contact Information].</p>
+<p>Dear ${name},</p>
+<p>I hope this email finds you well. We would like to confirm your upcoming appointment with Dr. Zeba's Clinic on ${date} at ${slot}.</p>
+    <p><strong>Location:</strong> Dr. Zeba's Clinic</p>
+<p>If you have any questions or need to reschedule, please contact us at ${phone}.</p>
     <p>We look forward to seeing you soon.</p>
-    <p>Best regards,<br>[Your Name]<br>[Your Title]<br>[Your Contact Information]</p>
+    <p>Best regards,<br>${name}<br>${phone}</p>
   </div>
   <div style="background-color: #000080; color: #fff; text-align: center; padding: 10px;">
-    <p>&copy; 2024 Your Clinic/Hospital Name. All rights reserved.</p>
+    <p>&copy; 2024 Dr. Zeba's Clinic. All rights reserved.</p>
   </div>
  `
         }
