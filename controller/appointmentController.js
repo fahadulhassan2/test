@@ -85,7 +85,7 @@ export const handleCreateAppointment = async (req, res) => {
         return res.status(201).json({
             msg: "you should receive an email",
             statusCode: 201,
-            message: "successfully Created",
+            message: "Your appointment has been successfully fully booked",
         });
     } catch (error) {
         return res.json({
