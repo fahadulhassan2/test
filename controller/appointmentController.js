@@ -65,7 +65,7 @@ export const handleCreateAppointment = async (req, res) => {
         let message = {
             from: "fahadulhassan2@gmail.com",
             to: email,
-            subject: "Confirming Upcoming Appointment",
+            subject: "Confirming your Upcoming Appointment",
             html: `
       
 <div>                     
