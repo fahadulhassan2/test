@@ -79,7 +79,7 @@ export const handleCreateAppointment = async (req, res) => {
     <h2>Confirming Your Upcoming Appointment</h2>
   </div>
   <div style="padding: 20px;">
-    <p>Dear [Patient's Name],</p>
+<p>Dear $${name},</p>
     <p>I hope this email finds you well. We would like to confirm your upcoming appointment with Dr. [Doctor's Last Name] on [Date] at [Time].</p>
     <p><strong>Location:</strong> [Clinic/Hospital Address]</p>
     <p>If you have any questions or need to reschedule, please contact us at [Your Contact Information].</p>
