@@ -67,19 +67,29 @@ export const handleCreateAppointment = async (req, res) => {
             to: email,
             subject: "Patient Appointment",
             html: `
-            <style>
-            body {
-              background-color: linen;
-            }
-            
-            h1 {
-              color: maroon;
-              margin-left: 40px;
-            }
-            </style>
-            <h1 class="test">mail</h1>
-                <img src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
-            `
+      
+<div>                     
+<div style="display: flex; color: #000080">
+  
+<img width="100" src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
+        <h1>Dr. Zeba's Clinic</h1>
+</div>
+<div style=" margin: 20px auto;">
+  <div style="background-color: #000080; color: #fff; text-align: center; padding: 20px;">
+    <h2>Confirming Your Upcoming Appointment</h2>
+  </div>
+  <div style="padding: 20px;">
+    <p>Dear [Patient's Name],</p>
+    <p>I hope this email finds you well. We would like to confirm your upcoming appointment with Dr. [Doctor's Last Name] on [Date] at [Time].</p>
+    <p><strong>Location:</strong> [Clinic/Hospital Address]</p>
+    <p>If you have any questions or need to reschedule, please contact us at [Your Contact Information].</p>
+    <p>We look forward to seeing you soon.</p>
+    <p>Best regards,<br>[Your Name]<br>[Your Title]<br>[Your Contact Information]</p>
+  </div>
+  <div style="background-color: #000080; color: #fff; text-align: center; padding: 10px;">
+    <p>&copy; 2024 Your Clinic/Hospital Name. All rights reserved.</p>
+  </div>
+ `
         }
 
         let message1 = {
