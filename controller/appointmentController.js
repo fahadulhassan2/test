@@ -67,11 +67,16 @@ export const handleCreateAppointment = async (req, res) => {
             to: email,
             subject: "Patient Appointment",
             html: `
-        <style>
-        .test{
-           color: #f2921d ;
-        }
-        </style>
+            <style>
+            body {
+              background-color: linen;
+            }
+            
+            h1 {
+              color: maroon;
+              margin-left: 40px;
+            }
+            </style>
             <h1 class="test">mail</h1>
                 <img src="https://zeba-clinic.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9883db1f.png&w=384&q=75" alt="not"/>
             `
