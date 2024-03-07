@@ -1,8 +1,9 @@
 import express, { json, urlencoded } from "express";
 import { connectionDB } from "./config/connecttionDB.js";
 import appointmentRouter from "./routes/appointmentRoute.js";
-
-connectionDB(process.env.DB_URL || "mongodb+srv://fahadulhassan2:ttuC3WWSyKcc7wWP@zebascluster.up7nyqa.mongodb.net/?retryWrites=true&w=majority&appName=ZebasCluster");
+import * as dotenv from 'dotenv'
+dotenv.config()
+connectionDB(String(process.env.NODE_ENV_DB_URL));
 
 // connectionDB("mongodb://0.0.0.0:27017/mydata");
 import cors from 'cors'
