@@ -6,6 +6,8 @@ const appointmentSchema = new Schema({
     date: String,
     phone: String,
     slot: String,
+    testCategory: String,
+    testPrice: String
 },
     { timestamps: true }
 )

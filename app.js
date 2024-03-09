@@ -1,6 +1,7 @@
 import express, { json, urlencoded } from "express";
 import { connectionDB } from "./config/connecttionDB.js";
 import appointmentRouter from "./routes/appointmentRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 import * as dotenv from 'dotenv'
 dotenv.config()
 connectionDB(String(process.env.NODE_ENV_DB_URL));
@@ -23,6 +24,7 @@ app.use(cors({
 
 // routes
 app.use("/api/v1", appointmentRouter);
+app.use("/api/v1", adminRouter);
 app.get("/", (req, res) => {
     return res.json({ messae: "hello" })
 })
