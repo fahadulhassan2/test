@@ -196,37 +196,41 @@ export const getAllAppointments = async (req, res) => {
 }
 
 export const handleEditAppointment = async (req, res) => {
-
-    const userdata = req.body;
-
-    const {
-        name, email, date, phone, slot, testCategory, testPrice
-    } = userdata
-
-    const userDate = new Date(date).toISOString();
-
-    const currentDate = new Date().toISOString();
-
-    if (userDate < currentDate) {
-
-        return res.status(403).json({ message: 'Date is older than current date. Use new date.' });
-    }
+    const { _id, name, email, date, phone, slot, testCategory, testPrice } = req.body;
 
     try {
-        await appointment.create({
-            name, email, date, phone, slot, testCategory, testPrice
-        });
+        const existingAppointment = await appointment.findById(_id);
 
+        if (!existingAppointment) {
+            return res.status(404).json({ message: 'Appointment not found' });
+        }
 
+        const userDate = new Date(date).toISOString();
+        const currentDate = new Date().toISOString();
 
-        return res.status(201).json({
+        if (userDate < currentDate) {
+            return res.status(403).json({ message: 'Date is older than current date. Use a new date.' });
+        }
+
+        // Update appointment fields
+        existingAppointment.name = name;
+        existingAppointment.email = email;
+        existingAppointment.date = date;
+        existingAppointment.phone = phone;
+        existingAppointment.slot = slot;
+        existingAppointment.testCategory = testCategory;
+        existingAppointment.testPrice = testPrice;
+
+        await existingAppointment.save();
+
+        return res.status(200).json({
             statusCode: 200,
-            message: "Appointment changes has been successfully done",
+            message: 'Appointment changes have been successfully updated',
         });
     } catch (error) {
-        return res.json({
-            statusCode: 403,
-            message: error.message
-        })
+        return res.status(500).json({
+            statusCode: 500,
+            message: error.message,
+        });
     }
 };
