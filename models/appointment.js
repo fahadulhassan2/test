@@ -1,7 +1,6 @@
 import { Schema, model } from "mongoose"
 
 const appointmentSchema = new Schema({
-    _id: Number,
     name: String,
     email: String,
     date: String,
