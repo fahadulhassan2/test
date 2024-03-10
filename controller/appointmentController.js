@@ -194,3 +194,39 @@ export const getAllAppointments = async (req, res) => {
         return res.status(403).json({ error: error.message })
     }
 }
+
+export const handleEditAppointment = async (req, res) => {
+
+    const userdata = req.body;
+
+    const {
+        name, email, date, phone, slot, testCategory, testPrice
+    } = userdata
+
+    const userDate = new Date(date).toISOString();
+
+    const currentDate = new Date().toISOString();
+
+    if (userDate < currentDate) {
+
+        return res.status(403).json({ message: 'Date is older than current date. Use new date.' });
+    }
+
+    try {
+        await appointment.create({
+            name, email, date, phone, slot, testCategory, testPrice
+        });
+
+
+
+        return res.status(201).json({
+            statusCode: 200,
+            message: "Appointment changes has been successfully done",
+        });
+    } catch (error) {
+        return res.json({
+            statusCode: 403,
+            message: error.message
+        })
+    }
+};
