@@ -7,7 +7,7 @@ export const handleCreateAppointment = async (req, res) => {
     const userdata = req.body;
 
     const {
-        name, email, date, phone, slot,
+        name, email, date, phone, slot, testPrice
     } = userdata
 
     const userDate = new Date(date).toISOString();
@@ -21,7 +21,7 @@ export const handleCreateAppointment = async (req, res) => {
 
     try {
         await appointment.create({
-            name, email, date, phone, slot,
+            name, email, date, phone, slot, testPrice
         });
 
         let config = {
