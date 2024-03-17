@@ -225,6 +225,7 @@ export const handleEditAppointment = async (req, res) => {
 
         return res.status(200).json({
             statusCode: 200,
+            data: existingAppointment,
             message: 'Appointment changes have been successfully updated',
         });
     } catch (error) {
